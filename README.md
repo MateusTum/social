@@ -27,7 +27,7 @@ Make sure you have the following prerequisites installed on your system:
 - Node.js
 - npm
 - Django
-- 
+
 ## Installation Steps
 
 ### a. Django Backend

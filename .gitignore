@@ -1,0 +1,4 @@
+social/db.sqlite3
+social/social/__pycache__/
+social/users/__pycache__/
+social/users/migrations/

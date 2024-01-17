@@ -5,7 +5,7 @@
 
 **Social** is a dynamic social media web application built with Python and Django. This project serves as a valuable platform for honing Python and Django skills, showcasing a conversion from a Flask-based project. Designed with user engagement in mind, YourSocialApp empowers users to create accounts, join communities, share posts, images, and videos, follow other users, follow communities of interest, post within communities, and personalize their algorithm to tailor content to their preferences.
 
-# Key Features
+## Key Features
 
 - User Authentication: Enable users to create accounts and log in securely.
 - Community Building: Form and join communities of shared interests.

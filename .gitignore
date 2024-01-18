@@ -1,4 +1,5 @@
-social/db.sqlite3
-social/social/__pycache__/
-social/users/__pycache__/
-social/users/migrations/
+backend/__pycache__/
+users/__pycache__/
+users/migrations/
+config.py
+__pycache__/config.cpython-312.pyc

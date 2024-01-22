@@ -55,7 +55,7 @@ const Navigation = ({ setLogoVisible }) => {
   );
 };
 
-const Cover = () => {
+const CoverPage = () => {
   const [logoVisible, setLogoVisible] = useState(false);
 
   useEffect(() => {
@@ -220,4 +220,4 @@ const Cover = () => {
   );
 };
 
-export default Cover;
+export default CoverPage;

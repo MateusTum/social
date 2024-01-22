@@ -1,7 +1,8 @@
 # 😎 Social 😎
-# ⚠️⚠️ ATENTION!!! INSTRUCTIONS ARE STILL UNDER CONSTRUCTION, THEY MAY NOT WORK PROPERLY!!!! ⚠️⚠️
+# ⚠️⚠️ ATENTION!!! INSTRUCTIONS ARE STILL UNDER CONSTRUCTION, THEY MAY NOT WORK PROPERLY ⚠️⚠️
 
 ## Table of Contents
+- [Prints](#prints)
 - [Intro](#introduction-and-overview)
 - [Prerequisites](#prerequisites)
 - [Installation Steps](#installation-steps)
@@ -10,6 +11,10 @@
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Prints
+### Cover Page
+![Cover Page](https://github.com/MateusTum/social-django/blob/develop/website-prints/cover-page.png)
 
 ## Introduction and Overview
 **Social** is a dynamic social media web application built with Python and Django. This project serves as a valuable platform for honing Python and Django skills, showcasing a conversion from a Flask-based project. Designed with user engagement in mind, YourSocialApp empowers users to create accounts, join communities, share posts, images, and videos, follow other users, follow communities of interest, post within communities, and personalize their algorithm to tailor content to their preferences.

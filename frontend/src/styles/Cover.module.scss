@@ -1,0 +1,94 @@
+.headerWrapper {
+    z-index: 1;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    font-size: 1rem;
+    background-image: linear-gradient(180deg,
+            #1d1e22,
+            rgba(#1d1e22, 0.1),
+            transparent);
+    mix-blend-mode: luminosity;
+
+    nav,
+    .nav-link {
+        color: white;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        width: 100%;
+
+        li {
+            padding: 0.5em;
+
+            a {
+                font-family: 'Montserrat', sans-serif;
+                position: relative;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: #f4f4f4;
+
+                &::after {
+                    position: absolute;
+                    bottom: -3px;
+                    left: 0;
+                    content: '';
+                    width: 0;
+                    height: 3px;
+                    transition: all 0.2s linear;
+                }
+
+                &:hover {
+                    &::after {
+                        width: 100%;
+                        background-color: #f4f4f4;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+html,
+body {
+    block-size: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.section {
+    padding-top: 50px;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    overflow-x: hidden;
+    scroll-snap-align: start;
+    /* Snap to the top of each item */
+}
+
+.logoAppear {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    /* Adjust the duration and easing as needed */
+}
+
+.logoAppearHidden {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    /* Adjust the duration and easing as needed */
+}

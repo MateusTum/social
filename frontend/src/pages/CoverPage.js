@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "../styles/cover.scss"; // Import your SCSS file
+import styles from "../styles/Cover.module.scss"; // Import your SCSS file
 import mysocialmedialogo from "../assets/svgs/mysocialmedialogo.svg";
 
 // {% load static %}
@@ -16,23 +16,22 @@ const Navigation = ({ setLogoVisible }) => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+      section.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <header>
+    <header className={styles.headerWrapper}>
       <nav>
         <div className="row">
           <div
-            className="d-flex justify-content-center fixed-top"
-            style={{ zIndex: 1000 }}
+            className="fixed-top"
           >
             <ul className="d-flex justify-content-center">
               <li>
                 <Link
                   onClick={() => {
-                    scrollToSection("section1");
+                    scrollToSection('section1');
                     handleLinkClick();
                   }}
                 >
@@ -40,12 +39,12 @@ const Navigation = ({ setLogoVisible }) => {
                 </Link>
               </li>
               <li>
-                <Link onClick={() => scrollToSection("section2")}>
+                <Link onClick={() => scrollToSection('section2')}>
                   Features
                 </Link>
               </li>
               <li>
-                <Link onClick={() => scrollToSection("section3")}>Contact</Link>
+                <Link onClick={() => scrollToSection('section3')}>Contact</Link>
               </li>
             </ul>
           </div>
@@ -82,7 +81,7 @@ const CoverPage = () => {
       <Navigation setLogoVisible={setLogoVisible} />
 
       <main>
-        <div id="section1">
+        <div id="section1" className={styles.section}>
           <div className="container">
             <div className="row d-flex text-center py-2">
               <div id="welcome-content" className="col-12">
@@ -93,14 +92,14 @@ const CoverPage = () => {
                     id="logo"
                     src={mysocialmedialogo}
                     alt="Social Logo"
-                    className="logo-appear"
+                    className={styles.logoAppear}
                   />
                 ) : (
                   <img
                     id="logo"
                     src={mysocialmedialogo}
                     alt="Social Logo"
-                    className="logo-appear-hidden"
+                    className={styles.logoAppearHidden}
                   />
                 )}
 
@@ -126,7 +125,7 @@ const CoverPage = () => {
           </div>
         </div>
 
-        <div id="section2">
+        <div id="section2" className={styles.section}>
           <div className="container">
             <div className="row text-center py-2">
               <div className="col-12">
@@ -175,7 +174,7 @@ const CoverPage = () => {
           </div>
         </div>
 
-        <div id="section3">
+        <div id="section3" className={styles.section}>
           <div className="container">
             <div className="row text-center py-2">
               <div className="col-12">

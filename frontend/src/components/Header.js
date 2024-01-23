@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import React from "react";
 import "../styles/Header.module.scss";
 import logo from "../assets/svgs/logoonly.svg";
@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 function HeaderDropdown() {
   return (
@@ -28,24 +28,28 @@ function HeaderDropdown() {
 function AppNavbar() {
   const location = useLocation();
   const currentPath = location.pathname;
-  const defaultActiveKey = currentPath === '/home' ? '/home' : currentPath;
+  const defaultActiveKey = currentPath === "/home" ? "/home" : currentPath;
 
   return (
     <header className="border-bottom fixed-top">
       <Container fluid>
         <Row lg={12} className="justify-content-between">
-
           <Col lg={1} className="pt-1 px-0">
             <Link className="navbar-logo">
               <img id="logo" src={logo} alt="logo" />
             </Link>
           </Col>
 
-          <Col lg={6}>
-            <Nav variant="tabs" defaultActiveKey={defaultActiveKey} className="justify-content-center">
+          <Col lg={6} className="d-flex justify-content-center">
+            <Nav
+              variant="tabs"
+              defaultActiveKey="/home"
+              activeKey={defaultActiveKey}
+              className="justify-content-center"
+            >
               <Nav.Item>
-                <Nav.Link href="/home">
-                <svg
+                <Nav.Link as={NavLink} to="/home">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1.5em"
                     height="1.5em"
@@ -56,11 +60,10 @@ function AppNavbar() {
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z" />
                   </svg>
                 </Nav.Link>
-
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="/profile">
-                <svg
+                <Nav.Link as={NavLink} to="/profile">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1.5em"
                     height="1.5em"
@@ -73,8 +76,8 @@ function AppNavbar() {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#" disabled>
-                <svg
+                <Nav.Link as={NavLink} to="/">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1.5em"
                     height="1.5em"
@@ -87,8 +90,8 @@ function AppNavbar() {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#" disabled>
-                <svg
+                <Nav.Link as={NavLink} to="/">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1.5em"
                     height="1.5em"
@@ -101,8 +104,8 @@ function AppNavbar() {
                 </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href="#" disabled>
-                <svg
+                <Nav.Link as={NavLink} to="/">
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="1.5em"
                     height="1.5em"
@@ -117,9 +120,7 @@ function AppNavbar() {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col lg={1}>
-
-          </Col>
+          <Col lg={1}></Col>
         </Row>
       </Container>
     </header>

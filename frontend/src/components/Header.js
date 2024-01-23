@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "../styles/Header.module.scss";
+import logo from "../assets/svgs/logoonly.svg"
 
 const Header = () => {
   return (
@@ -11,7 +12,7 @@ const Header = () => {
           >
             <img
               id="logo"
-              src="{{ url_for('static', filename='assets/svgs/logoonly.svg') }}"
+              src={logo}
               alt="logo"
             />
           </Link>

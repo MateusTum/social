@@ -1,11 +1,12 @@
 import React from "react";
 import "../styles/loginPage.scss";
 import mysocialmedialogo from "../assets/svgs/mysocialmedialogo.svg";
+import { Link } from "react-router-dom";
 
 const LoginBox = () => {
   return (
-    <div className="card align-items-center col-lg-8 col-md-10 p-2">
-      <img id="mysocialogo" src={mysocialmedialogo} />
+    <div className="card align-items-center col-lg-4 col-md-4 col-sm-6 col-10 p-2 mx-auto">
+      <img id="mysocialogo" src={mysocialmedialogo} alt="Social logo"/>
 
       <div className="form-group">
         <label htmlFor="email">Email address:</label>
@@ -23,16 +24,15 @@ const LoginBox = () => {
         </button>
         <div className="row justify-content-center">
           <div className="col-12">
-            <a className="text-primary mb-2 disabled text-center m-2" href="#">
+            <Link className="text-primary mb-2 disabled text-center m-2">
               Forgot password?
-            </a>
+            </Link>
             <br />
-            <a
+            <Link
               className="btn btn-success m-2"
-              href="#"
             >
               Create account
-            </a>
+            </Link>
           </div>
         </div>
       </div>

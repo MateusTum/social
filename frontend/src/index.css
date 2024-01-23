@@ -1,5 +1,4 @@
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +6,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  height: 100%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+:root {
+  --bs-primary-light: rgb(255, 255, 255);
+  /* Light theme background color */
+  --bs-primary-dark: rgb(0, 0, 0);
+  /* Dark theme background color */
+  --bs-btn-color: white;
+  --bs-body-bg: rgb(0, 0, 0);
 }

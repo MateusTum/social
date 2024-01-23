@@ -1,0 +1,17 @@
+@import './Variables';
+
+:root {
+    --bs-primary-light: rgb(255, 255, 255);
+    --bs-primary-dark: rgb(0, 0, 0);
+    --bs-btn-color: white;
+    --bs-body-bg: rgb(0, 0, 0);
+}
+
+
+[data-bs-theme='dark'] header {
+    background-color: $dark-color;
+}
+
+body {
+    margin-top: 50px;
+}

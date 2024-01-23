@@ -1,0 +1,46 @@
+@import './Variables';
+
+.avatar {
+    width: 10em;
+    border-radius: 50%;
+    border: 3px solid $dark-color;
+}
+
+.profileFeed {
+    background: $dark-color;
+    min-height: 1000px;
+    border-radius: 10px;
+}
+
+.profileLeftColumn {
+    background: $dark-color;
+    min-height: 1000px;
+    border-radius: 10px;
+    margin-right: 10px;
+
+}
+
+.profileName {
+    font-size: 24px;
+  }
+
+.profileInfo {
+    min-height: 15vh;
+    background-color: $dark-color;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.profileAddons {
+    min-height: 1000px;
+    background-color: $dark-color;
+    border-radius: 10px;
+}
+
+.followersCount {
+    font-size: 1.3em;
+}
+
+.profileBio {
+    font-size: 1.3em;
+}

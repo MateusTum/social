@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     "users.apps.UsersConfig",
+    "posts.apps.PostsConfig",
 ]
 
 MIDDLEWARE = [
@@ -138,3 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build/static')
 ]
+
+AUTH_USER_MODEL = 'users.CustomUser'

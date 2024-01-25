@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from users.views import UserViewSet
-from rest_framework.routers import DefaultRouter
+from django.conf import settings
+from django.conf.urls.static import static
 
-router = DefaultRouter()
-router.register(r'users', UserViewSet, basename='user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
-]
+    path('api/', include('posts.urls')),  # Include the app's API URLs here
+    path('api/', include('users.urls')),  # Include the app's API URLs here
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Static is being used only during development

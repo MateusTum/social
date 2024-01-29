@@ -4,3 +4,6 @@ users/migrations/
 config.py
 __pycache__/config.cpython-312.pyc
 devlopment-diary.txt
+posts/migrations/
+posts/__pycache__/
+post_images/

@@ -1,0 +1,23 @@
+@import './Variables';
+
+.postContainer {
+    background-color: $dark-color;
+    border-radius: 10px;
+}
+
+.authorPicture {
+    width: 5em;
+    height: 5em;
+}
+
+.sidebar {
+    height: 100%;
+}
+
+.carouselItem {
+    object-fit: contain;
+}
+
+.carouselImage {
+    height: 75vh;
+}

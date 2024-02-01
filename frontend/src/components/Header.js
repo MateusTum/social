@@ -8,6 +8,14 @@ import Nav from "react-bootstrap/Nav";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useLocation } from "react-router-dom";
+import { logout } from './apiService';
+
+const handleLogout = () => {
+    logout();
+    // Update state to reflect that user is logged out
+    // Redirect to login page or home page
+};
+
 
 function HeaderDropdown() {
   return (
@@ -31,16 +39,16 @@ function AppNavbar() {
   const defaultActiveKey = currentPath === "/home" ? "/home" : currentPath;
 
   return (
-    <header className="border-bottom fixed-top">
+    <header className="border-bottom fixed-top p-0">
       <Container fluid>
-        <Row lg={12} className="justify-content-between">
-          <Col lg={1} className="pt-1 px-0">
+        <Row className="justify-content-around">
+          <Col lg={1} md={1} sm={1} className="pt-1 px-0 d-none d-sm-block">
             <Link className="navbar-logo">
               <img id="logo" src={logo} alt="logo" />
             </Link>
           </Col>
 
-          <Col lg={6} className="d-flex justify-content-center">
+          <Col lg={9} md={9} sm={9} xs={12} className="d-flex justify-content-center">
             <Nav
               variant="tabs"
               defaultActiveKey="/home"
@@ -120,7 +128,7 @@ function AppNavbar() {
               </Nav.Item>
             </Nav>
           </Col>
-          <Col lg={1}></Col>
+          <Col lg={1} md={1} sm={1} className="d-none d-sm-block"></Col>
         </Row>
       </Container>
     </header>

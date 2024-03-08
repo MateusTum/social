@@ -1,8 +1,8 @@
-import React from "react";
-import { NavLink, useLocation, Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation, NavLink as RRNavLink } from "react-router-dom";
 
 // Bootstrap imports
-import { Nav, NavDropdown, Row, Col } from "react-bootstrap";
+import { Row, Col, Nav, NavItem, NavLink, NavDropdown } from "react-bootstrap";
 
 // Import Icons
 import Icons from "../../assets/svgs/nav_svgs/NavIcons";
@@ -19,7 +19,7 @@ function NavUserDropdown({ NotificationIcon }) {
       <NavDropdown
         title={<NotificationIcon />}
         menuVariant="dark"
-        className={styles.noDropdownArrow}
+        className={`px-1 ${styles.noDropdownArrow}`}
       >
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -37,7 +37,7 @@ function NotificationDropdown({ NotificationIcon }) {
       <NavDropdown
         title={<NotificationIcon />}
         menuVariant="dark"
-        className={styles.noDropdownArrow}
+        className={`px-1 ${styles.noDropdownArrow}`}
       >
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -54,91 +54,121 @@ const AppNavBar = () => {
   const currentPath = location.pathname;
   const defaultActiveKey = currentPath === "/home" ? "/home" : currentPath;
 
+  const [showSearch, setShowSearch] = useState(false);
+  const searchInputRef = useRef(null);
+
   // Simulate loggedin
   const isAuthenticated = true;
 
   const { House, Houses, Search, People, Chat, Notification } = Icons;
 
+  // Hide search on clicks outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        searchInputRef.current &&
+        !searchInputRef.current.contains(event.target)
+      ) {
+        setShowSearch(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [searchInputRef]);
+
   return (
-    <Row>
-      <Nav
-        variant="tabs"
-        defaultActiveKey="/home"
-        activeKey={defaultActiveKey}
-        className={`${styles.navbar}`}
+    <Row className={`align-items-center ${styles.navbar}`}>
+      {/* Logo Link */}
+      <Col
+        lg={true}
+        className={`d-flex justify-content-start ${styles.logoWrapper}`}
       >
+        <Nav.Item>
+          <Nav.Link as={Link} to="/home">
+            <Logo />
+          </Nav.Link>
+        </Nav.Item>
+      </Col>
 
-        {/* Logo Link */}
-        <Col lg={1} className={`d-flex ${styles.logoWrapper}`}>
-          <Nav.Item>
-            <Nav.Link as={Link}>
-              {/* Logo placeholder */}
-              <Logo />
-            </Nav.Link>
-          </Nav.Item>
-        </Col>
+      {/* Menu with tabs */}
+      <Col lg={showSearch ? 5 : 7} className="d-flex justify-content-center">
+        {isAuthenticated && !showSearch && (
+          <Nav
+            variant="tabs"
+            defaultActiveKey="/home"
+            activeKey={defaultActiveKey}
+            className={`${styles.navbar}`}
+          >
+            <NavItem>
+              <NavLink as={RRNavLink} to="/home">
+                <House />
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink as={RRNavLink} to="/profile">
+                <Houses />
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink
+                style={{ cursor: "pointer" }}
+                as="div"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setShowSearch(true);
+                }}
+              >
+                <Search />
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink as={RRNavLink} to="/">
+                <People />
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink as={RRNavLink} to="/">
+                <Chat />
+              </NavLink>
+            </NavItem>
+          </Nav>
+        )}
 
-        {/* Menu with tabs */}
+        {showSearch && (
+          <input
+            ref={searchInputRef}
+            type="text"
+            className="form-control"
+            placeholder="Search..."
+            autoFocus
+          />
+        )}
+      </Col>
+
+      {/* Notifications and user configs aligned to the right */}
+      <Col lg={true} className={`d-flex justify-content-end ${styles.userTab}`}>
         {isAuthenticated && (
           <>
-            <Col
-              lg={9}
-              className="d-flex justify-content-center ms-auto me-auto"
-            >
-              <Nav.Item>
-                <Nav.Link as={NavLink} to="/home">
-                  <House />
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={NavLink} to="/profile">
-                  <Houses />
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={NavLink} to="/">
-                  <Search />
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={NavLink} to="/">
-                  <People />
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link as={NavLink} to="/">
-                  <Chat />
-                </Nav.Link>
-              </Nav.Item>
-            </Col>
-
-            {/* Notifications and user configs */}
-            <Col className={`d-flex ${styles.userTab}`} lg={1}>
-
-              <NotificationDropdown NotificationIcon={Notification}/>
-
-              {/* Icon is a place holder */}
-              <NavUserDropdown NotificationIcon={People}/>
-
-            </Col>
-            
+            <NotificationDropdown NotificationIcon={Notification}/>
+            <NavUserDropdown NotificationIcon={People} />
           </>
         )}
         {!isAuthenticated && (
-          <Col lg={4} className="d-flex">
-            <Nav.Item>
-              <Nav.Link as={NavLink} to="/login">
+          <Nav variant="tabs" className={`${styles.navbar}`}>
+            <NavItem>
+              <NavLink as={RRNavLink} to="/login">
                 Login
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link as={NavLink} to="/signup">
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink as={RRNavLink} to="/signup">
                 Sign Up
-              </Nav.Link>
-            </Nav.Item>
-          </Col>
+              </NavLink>
+            </NavItem>
+          </Nav>
         )}
-      </Nav>
+      </Col>
     </Row>
   );
 };

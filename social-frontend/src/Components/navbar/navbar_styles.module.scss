@@ -4,23 +4,19 @@
     // Color scheme
     background-color: $primary-color;
 
+    height: 43px;
+
+
     // Padding
     padding-left: 10px;
     padding-right: 10px;
 
-    .logoWrapper {
-        max-width: fit-content;
-    }
-    
-    .userTab {
-        max-width: fit-content;
-    }
-
     svg {
         color: $tertiary-color;
     }
+
+    .noDropdownArrow a::after {
+        display: none !important;
+    }
 }
 
-.noDropdownArrow a::after {
-    display: none !important;
-}

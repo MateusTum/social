@@ -15,6 +15,10 @@
     .userTab {
         max-width: fit-content;
     }
+
+    svg {
+        color: $tertiary-color;
+    }
 }
 
 .noDropdownArrow a::after {

@@ -4,6 +4,10 @@ import { Dropdown, Button, Row, Col } from "react-bootstrap";
 // Import styles
 import styles from "./feed_styles.module.scss";
 
+/**
+ * Renders the feed component.
+ * @returns {JSX.Element} The rendered feed component.
+ */
 const Feed = () => {
   return (
     <Row className={`mx-auto ${styles.feed}`}>

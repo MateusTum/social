@@ -13,6 +13,13 @@ import Logo from "../../assets/svgs/Logo";
 // Import styles
 import styles from "./navbar_styles.module.scss";
 
+/**
+ * Renders a user dropdown menu in the navigation bar.
+ *
+ * @param {Object} props - The component props.
+ * @param {React.Component} props.NotificationIcon - The component for the notification icon.
+ * @returns {React.Component} The rendered user dropdown menu.
+ */
 function NavUserDropdown({ NotificationIcon }) {
   return (
     <>
@@ -31,6 +38,13 @@ function NavUserDropdown({ NotificationIcon }) {
   );
 }
 
+/**
+ * Renders a notification dropdown component.
+ *
+ * @param {Object} props - The component props.
+ * @param {React.Element} props.NotificationIcon - The icon component to be displayed as the dropdown title.
+ * @returns {React.Element} The rendered notification dropdown component.
+ */
 function NotificationDropdown({ NotificationIcon }) {
   return (
     <>
@@ -49,6 +63,12 @@ function NotificationDropdown({ NotificationIcon }) {
   );
 }
 
+/**
+ * AppNavBar component represents the navigation bar of the application.
+ * It displays the logo, menu tabs, search input, notifications, and user configurations.
+ *
+ * @returns {JSX.Element} The rendered AppNavBar component.
+ */
 const AppNavBar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
@@ -100,16 +120,22 @@ const AppNavBar = () => {
             activeKey={defaultActiveKey}
             className={`${styles.navbar}`}
           >
+
+            {/* Home */}
             <NavItem>
               <NavLink as={RRNavLink} to="/home">
                 <House />
               </NavLink>
             </NavItem>
+
+            {/* Profile */}
             <NavItem>
               <NavLink as={RRNavLink} to="/profile">
                 <Houses />
               </NavLink>
             </NavItem>
+
+            {/* Search */}
             <NavItem>
               <NavLink
                 style={{ cursor: "pointer" }}
@@ -122,16 +148,21 @@ const AppNavBar = () => {
                 <Search />
               </NavLink>
             </NavItem>
+
+            {/* People */}
             <NavItem>
               <NavLink as={RRNavLink} to="/">
                 <People />
               </NavLink>
             </NavItem>
+
+            {/* Chat */}
             <NavItem>
               <NavLink as={RRNavLink} to="/">
                 <Chat />
               </NavLink>
             </NavItem>
+
           </Nav>
         )}
 

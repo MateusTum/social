@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Assuming these are your page component imports
 // import Home from './Home';
 // import About from './About';
+
+// Authentication pages
 import LoginPage from './Pages/authentication/login_page/LoginPage';
-// import RegisterPage from './Pages/authentication/register_page/RegisterPage'; // Example import if you have a Register page
+import RegisterPage from './Pages/authentication/register_page/RegisterPage';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
         {/* Authentication */}
         <Route path="/login" element={<LoginPage />} />
         {/* Uncomment and import RegisterPage to use it */}
-        {/* <Route path="/register" element={<RegisterPage />} /> */}
+        <Route path="/register" element={<RegisterPage />} />
         
       </Routes>
     </Router>

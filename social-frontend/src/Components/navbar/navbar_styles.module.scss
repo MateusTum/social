@@ -1,5 +1,17 @@
 @import "../../_variables.scss";
 
 .navbar {
+    // Color scheme
     background-color: $primary-color;
+
+    // Padding
+    padding: 0px;
+
+    .logoWrapper {
+        max-width: fit-content;
+    }
+    
+    .userTab {
+        max-width: fit-content;
+    }
 }

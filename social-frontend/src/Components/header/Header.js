@@ -13,9 +13,7 @@ const AppHeader = () => {
   return (
     <header className="border-bottom fixed-top p-0">
       <Container fluid>
-        <Row>
             <AppNavBar/>
-        </Row>
       </Container>
     </header>
   );

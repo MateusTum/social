@@ -105,7 +105,7 @@ const Icons = {
   Search: Search,
   People: People,
   Chat: Chat,
-  Notification, Notification,
+  Notification: Notification,
 };
 
 export default Icons;

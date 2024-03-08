@@ -3,7 +3,7 @@ import React from "react";
 // import logo from "../assets/svgs/logoonly.svg";
 
 // Bootstrap imports
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 // Import navbar
 import AppNavBar from "../navbar/AppNavBar";

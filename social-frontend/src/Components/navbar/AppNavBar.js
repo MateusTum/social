@@ -30,6 +30,9 @@ const AppNavBar = () => {
   const currentPath = location.pathname;
   const defaultActiveKey = currentPath === "/home" ? "/home" : currentPath;
 
+  // Simulate loggedin
+  const isAuthenticated = true;
+
   const { House, Houses, Search, People, Chat } = Icons;
 
   return (
@@ -45,32 +48,50 @@ const AppNavBar = () => {
           <Logo />
         </Nav.Link>
       </Nav.Item>
-      <Nav.Item>
-        <Nav.Link as={NavLink} to="/home">
-          <House />
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link as={NavLink} to="/profile">
-          <Houses />
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link as={NavLink} to="/">
-          <Search />
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link as={NavLink} to="/">
-          <People />
-        </Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link as={NavLink} to="/">
-          <Chat />
-        </Nav.Link>
-      </Nav.Item>
-      <NavUserDropdown />
+      {isAuthenticated && (
+        <>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/home">
+              <House />
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/profile">
+              <Houses />
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/">
+              <Search />
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/">
+              <People />
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/">
+              <Chat />
+            </Nav.Link>
+          </Nav.Item>
+          <NavUserDropdown />
+        </>
+      )}
+      {!isAuthenticated && (
+        <>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/login">
+              Login
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link as={NavLink} to="/signup">
+              Sign Up
+            </Nav.Link>
+          </Nav.Item>
+          </>
+      )}
     </Nav>
   );
 };

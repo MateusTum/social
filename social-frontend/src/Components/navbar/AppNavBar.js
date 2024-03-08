@@ -13,15 +13,39 @@ import Logo from "../../assets/svgs/Logo";
 // Import styles
 import styles from "./navbar_styles.module.scss";
 
-function NavUserDropdown() {
+function NavUserDropdown({ NotificationIcon }) {
   return (
-    <NavDropdown menuVariant="dark">
-      <NavDropdown.Item href="#action/3.1"></NavDropdown.Item>
-      <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-      <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-      <NavDropdown.Divider />
-      <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-    </NavDropdown>
+    <>
+      <NavDropdown
+        title={<NotificationIcon />}
+        menuVariant="dark"
+        className={styles.noDropdownArrow}
+      >
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </>
+  );
+}
+
+function NotificationDropdown({ NotificationIcon }) {
+  return (
+    <>
+      <NavDropdown
+        title={<NotificationIcon />}
+        menuVariant="dark"
+        className={styles.noDropdownArrow}
+      >
+        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+      </NavDropdown>
+    </>
   );
 }
 
@@ -36,7 +60,7 @@ const AppNavBar = () => {
   const { House, Houses, Search, People, Chat, Notification } = Icons;
 
   return (
-    <Row className={styles.navbar}>
+    <Row>
       <Nav
         variant="tabs"
         defaultActiveKey="/home"
@@ -45,7 +69,7 @@ const AppNavBar = () => {
       >
 
         {/* Logo Link */}
-        <Col className={`${styles.logoWrapper}`}>
+        <Col lg={1} className={`d-flex ${styles.logoWrapper}`}>
           <Nav.Item>
             <Nav.Link as={Link}>
               {/* Logo placeholder */}
@@ -57,7 +81,10 @@ const AppNavBar = () => {
         {/* Menu with tabs */}
         {isAuthenticated && (
           <>
-            <Col lg={9} className="d-flex justify-content-center ms-auto me-auto">
+            <Col
+              lg={9}
+              className="d-flex justify-content-center ms-auto me-auto"
+            >
               <Nav.Item>
                 <Nav.Link as={NavLink} to="/home">
                   <House />
@@ -87,13 +114,14 @@ const AppNavBar = () => {
 
             {/* Notifications and user configs */}
             <Col className={`d-flex ${styles.userTab}`} lg={1}>
-              <Nav.Item>
-                <Nav.Link as={NavLink} to="/">
-                  <Notification />
-                </Nav.Link>
-              </Nav.Item>
-              <NavUserDropdown />
+
+              <NotificationDropdown NotificationIcon={Notification}/>
+
+              {/* Icon is a place holder */}
+              <NavUserDropdown NotificationIcon={People}/>
+
             </Col>
+            
           </>
         )}
         {!isAuthenticated && (

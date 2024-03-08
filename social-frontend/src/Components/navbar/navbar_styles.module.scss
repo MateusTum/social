@@ -5,7 +5,8 @@
     background-color: $primary-color;
 
     // Padding
-    padding: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
 
     .logoWrapper {
         max-width: fit-content;
@@ -14,4 +15,8 @@
     .userTab {
         max-width: fit-content;
     }
+}
+
+.noDropdownArrow a::after {
+    display: none !important;
 }

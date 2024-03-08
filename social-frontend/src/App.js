@@ -9,9 +9,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginPage from './Pages/authentication/login_page/LoginPage';
 import RegisterPage from './Pages/authentication/register_page/RegisterPage';
 
+// Header
+import AppHeader from './Components/header/Header';
+
 function App() {
   return (
     <Router>
+      <AppHeader />
       <Routes>
         {/* Home */}
         {/* React Router v6 uses `element` prop to render components */}

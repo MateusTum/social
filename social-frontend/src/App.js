@@ -1,16 +1,14 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // Import pages
-// Assuming these are your page component imports
-// import Home from './Home';
-// import About from './About';
+import HomePage from "./Pages/home_page/HomePage";
 
 // Authentication pages
-import LoginPage from './Pages/authentication/login_page/LoginPage';
-import RegisterPage from './Pages/authentication/register_page/RegisterPage';
+import LoginPage from "./Pages/authentication/login_page/LoginPage";
+import RegisterPage from "./Pages/authentication/register_page/RegisterPage";
 
 // Header
-import AppHeader from './Components/header/Header';
+import AppHeader from "./Components/header/Header";
 
 function App() {
   return (
@@ -19,13 +17,12 @@ function App() {
       <Routes>
         {/* Home */}
         {/* React Router v6 uses `element` prop to render components */}
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/home" element={<HomePage />} />
 
         {/* Authentication */}
         <Route path="/login" element={<LoginPage />} />
         {/* Uncomment and import RegisterPage to use it */}
         <Route path="/register" element={<RegisterPage />} />
-        
       </Routes>
     </Router>
   );

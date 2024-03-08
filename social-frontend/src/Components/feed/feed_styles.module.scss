@@ -1,0 +1,24 @@
+@import "../../_variables.scss";
+
+.feed {
+    // Color scheme
+    background-color: $primary-color;
+
+    // Border
+    border-radius: 10px;
+
+    // Height
+    min-height: 100vh;
+
+    // Padding
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+
+    .feedHeader {
+        height: fit-content;
+    }
+
+
+}

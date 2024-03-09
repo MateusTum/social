@@ -12,7 +12,7 @@ import AppNavBar from "../navbar/AppNavBar";
 const AppHeader = () => {
   return (
     <header className="fixed-top p-0">
-      <Container fluid>
+      <Container className="p-0" fluid>
             <AppNavBar/>
       </Container>
     </header>

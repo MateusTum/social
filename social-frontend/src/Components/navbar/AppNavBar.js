@@ -98,11 +98,13 @@ const AppNavBar = () => {
   }, [searchInputRef]);
 
   return (
-    <Row className={`align-items-center ${styles.navbar}`}>
+    <Row
+      className={`align-items-center justify-content-center ${styles.navbar}`}
+    >
       {/* Logo Link */}
       <Col
-        lg={true}
-        className={`d-flex justify-content-start ${styles.logoWrapper}`}
+        sm={true}
+        className="d-none d-sm-block"
       >
         <Nav.Item>
           <Nav.Link as={Link} to="/home">
@@ -112,15 +114,19 @@ const AppNavBar = () => {
       </Col>
 
       {/* Menu with tabs */}
-      <Col lg={showSearch ? 5 : 7} className="d-flex justify-content-center">
+      <Col
+        xl={showSearch ? 4 : "auto"}
+        lg={showSearch ? 6 : "auto"}
+        md={showSearch ? 7 : "auto"}
+        sm={showSearch ? 8 : "auto"}
+        xs={showSearch ? 8 : "auto"}
+      >
         {isAuthenticated && !showSearch && (
           <Nav
             variant="tabs"
             defaultActiveKey="/home"
             activeKey={defaultActiveKey}
-            className={`${styles.navbar}`}
           >
-
             {/* Home */}
             <NavItem>
               <NavLink as={RRNavLink} to="/home">
@@ -162,7 +168,6 @@ const AppNavBar = () => {
                 <Chat />
               </NavLink>
             </NavItem>
-
           </Nav>
         )}
 
@@ -178,15 +183,18 @@ const AppNavBar = () => {
       </Col>
 
       {/* Notifications and user configs aligned to the right */}
-      <Col lg={true} className={`d-flex justify-content-end ${styles.userTab}`}>
+      <Col
+        sm={true}
+        className={`d-flex justify-content-end align-items-center text-end d-none d-sm-flex`}
+      >
         {isAuthenticated && (
           <>
-            <NotificationDropdown NotificationIcon={Notification}/>
+            <NotificationDropdown NotificationIcon={Notification} />
             <NavUserDropdown NotificationIcon={People} />
           </>
         )}
         {!isAuthenticated && (
-          <Nav variant="tabs" className={`${styles.navbar}`}>
+          <Nav variant="tabs">
             <NavItem>
               <NavLink as={RRNavLink} to="/login">
                 Login

@@ -18,5 +18,9 @@
     .noDropdownArrow a::after {
         display: none !important;
     }
+
+    .notificationWrapper {
+        width: fit-content;
+    }
 }
 

@@ -10,7 +10,7 @@ const HomePage = () => {
       <Row className="justify-content-between">
 
         {/* Feed */}
-        <Col className="justify-content-center ms-auto me-auto" sm={12} md={12} lg={6}>
+        <Col className="justify-content-center ms-auto me-auto" sm={12} md={8} lg={6}>
           <Feed />
         </Col>
 

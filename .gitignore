@@ -7,3 +7,4 @@ devlopment-diary.txt
 posts/migrations/
 posts/__pycache__/
 post_images/
+/social-frontend/node_modules
